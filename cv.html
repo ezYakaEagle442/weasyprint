@@ -13,7 +13,7 @@
         }
 
         /* Éviter les coupures de section, d'expérience, de formation, etc. */
-        .section, .job, .education-item, .expertise-item {
+        .job, .education-item, .expertise-item , .language-item , .certification-item, .compétence-item, .footer, .ats-friendly{
             page-break-inside: avoid;
         }
 
@@ -69,7 +69,7 @@
             padding: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: left;
         }
         
         .photo-container {
@@ -87,7 +87,7 @@
         }
         
         .contact-info {
-            width: 100%;
+            width: 30%;
             margin-bottom: 20px;
         }
         .contact-info h2 {
@@ -109,7 +109,7 @@
         }
         
         .skills-section {
-            width: 100%;
+            width: 30%;
             margin-top: 20px;
         }
         .skills-section h2 {
@@ -139,7 +139,7 @@
         }
         
         .languages-section {
-            width: 100%;
+            width: 30%;
             margin-top: 20px;
         }
         .languages-section h2 {
@@ -154,7 +154,7 @@
         }
         
         .atouts-section {
-            width: 100%;
+            width: 30%;
             margin-top: 20px;
         }
         .atouts-section h2 {
@@ -200,35 +200,35 @@
             border-bottom: 2px solid #3498db;
         }
         
-        .job, .education-item {
+        .job, .education-item, .certification-item, .compétence-item {
             margin-bottom: 15px;
         }
-        .job-header, .education-header {
+        .job-header, .education-header, .certification-header {
             display: flex;
             justify-content: space-between;
             margin-bottom: 5px;
         }
-        .job-title, .education-title {
+        .job-title, .education-title, .certification-title {
             font-weight: 700;
             color: #2c3e50;
         }
-        .job-company, .education-school {
+        .job-company, .education-school, .certification-issuer {
             font-style: italic;
             color: #7f8c8d;
         }
-        .job-date, .education-date {
+        .job-date, .education-date, .certification-date {
             color: #7f8c8d;
             font-size: 11px;
         }
-        .job-description, .education-description {
+        .job-description, .education-description, .certification-description {
             margin-left: 15px;
             font-size: 11px;
             color: #555;
         }
-        .job-description ul, .education-description ul {
+        .job-description ul, .education-description ul, .certification-description ul {
             margin-top: 5px;
         }
-        .job-description li, .education-description li {
+        .job-description li, .education-description li, .certification-description li {
             margin-bottom: 3px;
         }
         
@@ -274,9 +274,12 @@
             .main-content {
                 display: block;
             }
-            .left-column, .right-column {
-                width: 100%;
+            .left-column {
+                width: 30%;
             }
+           .right-column {
+                width: 70%;
+            }            
             .left-column {
                 background-color: #f5f5f5;
                 color: #333;
@@ -373,8 +376,7 @@
                         <span>xxx</span>
                         <div>ZZZ</div>
                     </div>
-                </div>
-                
+                </div>  
             </div>
             
             <!-- Colonne droite -->
@@ -458,15 +460,15 @@
                 <div class="section">
                     <h2>CERTIFICATIONS</h2>
                     
-                    <div class="education-item">
-                        <div class="education-header">
+                    <div class="certification-item">
+                        <div class="certification-header">
                             <div>
-                                <div class="education-title">Certification obtenue</div>
-                                <div class="education-school">Organsime</div>
+                                <div class="certification-title">Certification obtenue</div>
+                                <div class="certification-issuer">Organisme</div>
                             </div>
-                            <div class="education-date">2026 – 2026</div>
+                            <div class="certification-date">2026 – 2026</div>
                         </div>
-                        <div class="education-description">
+                        <div class="certification-description">
                             <p>Cyber X</p>
                         </div>
                     </div>                    
@@ -475,7 +477,7 @@
                 <!-- Compétences / DOMAINES D'EXPERTISE -->
                 <div class="section">
                     <h2>COMPÉTENCES</h2>
-                    <div class="compétence">
+                    <div class="compétence-item">
                         <div class="compétence-header">
                             <div>
                                 <div class="compétence-title">Standards & regulations</div>
@@ -494,8 +496,9 @@
             CV généré avec WeasyPrint | Optimisé pour ATS
         </div>
         
-        <!-- Version optimisée ATS (masquée visuellement mais accessible aux robots) 
+        <!-- Version optimisée ATS (masquée visuellement mais accessible aux robots)  -->
         <div class="ats-friendly">
+            <!--
             <h1>PRÉNOM NOM</h1>
             <p>Poste actuel | Spécialisation</p>
             <h2>Expérience Professionnelle</h2>
@@ -505,8 +508,9 @@
             <p><strong>Diplôme obtenu</strong> à École (AAAA – AAAA)</p>
             <h2>Compétences</h2>
             <p>Compétence 1, Compétence 2, Compétence 3, Langues: Français, Anglais</p>
+            -->
         </div>
-        -->
+       
     </div>
 </body>
 </html>
