@@ -4,6 +4,12 @@ cnf/*
 setenv.*
 .env
 
+*.aux
+*.fls
+*.fdb_latexmk
+*.gz
+*.log
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
