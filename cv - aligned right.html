@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Prénom NOM</title>
+    <style>
+        /* Reset et base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Éviter les coupures de section, d'expérience, de formation, etc. */
+        .job, .education-item, .expertise-item , .language-item ,  .atouts-section, .certification-item, .compétence-item, .footer, .ats-friendly{
+            page-break-inside: avoid;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            font-size: 12px;
+        }
+        
+        /* Conteneur principal */
+        .cv-container {
+            width: 210mm;
+            min-height: 297mm;
+            background-color: #fff;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* En-tête */
+        .header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        .header .title {
+            font-size: 14px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        /* Section principale (2 colonnes) */
+        .main-content {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+        
+        /* Colonne gauche (informations personnelles) */
+        .left-column {
+            width: 30%;
+            background-color: #34495e;
+            color: #fff;
+            padding: 20px;
+            align-items: left;
+            display: table-cell;
+            vertical-align: top;            
+        }
+        
+        .photo-container {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 3px solid #fff;
+        }
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .contact-info {
+            width: 30%;
+            margin-bottom: 20px;
+        }
+        .contact-info h2 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 5px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 11px;
+        }
+        .contact-item i {
+            margin-right: 8px;
+            width: 16px;
+            text-align: center;
+        }
+        
+        .skills-section {
+            width: 30%;
+            margin-top: 20px;
+        }
+        .skills-section h2 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 5px;
+        }
+        .skill-item {
+            margin-bottom: 8px;
+            font-size: 11px;
+        }
+        .skill-name {
+            display: block;
+            margin-bottom: 3px;
+        }
+        .skill-bar {
+            height: 5px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .skill-level {
+            height: 100%;
+            background-color: #3498db;
+            border-radius: 2px;
+        }
+        
+        .languages-section {
+            width: 30%;
+            margin-top: 20px;
+        }
+        .languages-section h2 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 5px;
+        }
+        .language-item {
+            margin-bottom: 8px;
+            font-size: 11px;
+        }
+        
+        .atouts-section {
+            width: 30%;
+            margin-top: 20px;
+        }
+        .atouts-section h2 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 5px;
+        }
+        .atouts-item {
+            margin-bottom: 8px;
+            font-size: 11px;
+        }
+        .atouts-list {
+            list-style: none;
+            padding: 0;
+        }
+        .atouts-list li {
+            margin-bottom: 6px;
+            font-size: 11px;
+            position: relative;
+            padding-left: 15px;
+        }
+        .atouts-list li:before {
+            content: "•";
+            color: #3498db;
+            position: absolute;
+            left: 0;
+        }
+        /* Colonne droite (expérience, formation, etc.) */
+        .right-column {
+            display: table-cell;
+            width: 70%;
+            padding: 20px;
+            vertical-align: top;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .job, .education-item, .certification-item, .compétence-item {
+            margin-bottom: 15px;
+        }
+        .job-header, .education-header, .certification-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        .job-title, .education-title, .certification-title {
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        .job-company, .education-school, .certification-issuer {
+            font-style: italic;
+            color: #7f8c8d;
+        }
+        .job-date, .education-date, .certification-date {
+            color: #7f8c8d;
+            font-size: 11px;
+        }
+        .job-description, .education-description, .certification-description {
+            margin-left: 15px;
+            font-size: 11px;
+            color: #555;
+        }
+        .job-description ul, .education-description ul, .certification-description ul {
+            margin-top: 5px;
+        }
+        .job-description li, .education-description li, .certification-description li {
+            margin-bottom: 3px;
+        }
+        
+        /* Styles pour les compétences */
+        .compétence {
+            margin-bottom: 15px;
+        }
+        .compétence-header {    
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        .compétence-title {
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        .compétence-description {
+            margin-left: 15px;
+            font-size: 11px;
+            color: #555;
+        }
+
+        /* Pied de page */
+        .footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 10px;
+        }
+        
+        /* Optimisation ATS */
+        .ats-friendly {
+            /* Éviter les colonnes pour les ATS */
+            display: none;
+        }
+        
+        @media print {
+            .cv-container {
+                box-shadow: none;
+                width: 100%;
+            }
+            .main-content {
+                display: block;
+            }
+            .left-column {
+                width: 30%;
+                height: 100%; /* Hauteur maximale */
+                overflow: hidden; /* Évite le débordement */
+            }
+           .right-column {
+                width: 70%;
+                height: 100%; /* Hauteur maximale */
+                
+            }            
+            .left-column {
+                background-color: #f5f5f5;
+                color: #333;
+            }
+            .ats-friendly {
+                display: block;
+            }
+        }
+    </style>
+    <!-- Font Awesome pour les icônes (à héberger localement pour ATS) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="cv-container">
+        <!-- En-tête -->
+        <div class="header">
+            <h1>PRÉNOM NOM</h1>
+            <div class="title">Poste actuel | Spécialisation</div>
+        </div>
+        
+        <!-- Contenu principal -->
+        <div class="main-content">
+            <!-- Colonne gauche -->
+            <div class="left-column">
+                <div class="photo-container">
+                    <img src="./thispersondoesnotexist.jpg" alt="Photo de profil">
+                </div>
+                
+                <div class="contact-info">
+                    <h2>INFORMATIONS</h2>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Adresse, Ville, Pays</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+XX XXX XXX XXX</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>email@domaine.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <span>www.monsite.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <span>linkedin.com/in/profil</span>
+                    </div>
+                </div>
+                
+                <div class="skills-section">
+                    <h2>COMPÉTENCES</h2>
+                    <div class="skill-item">
+                        <span class="skill-name">Compétence 1</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Compétence 2</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <span class="skill-name">Compétence 3</span>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="languages-section">
+                    <h2>LANGUES</h2>
+                    <div class="language-item">
+                        <span>Français</span>
+                        <div>Courant</div>
+                    </div>
+                    <div class="language-item">
+                        <span>Anglais</span>
+                        <div>Intermédiaire</div>
+                    </div>
+                </div>
+
+                <div class="atouts-section">
+                    <h2>Atouts</h2>
+                    <div class="atouts-item">
+                        <span>Orienté résultats</span>
+                        <div>esprit d'équipe</div>
+                    </div>
+                    <div class="atouts-item">
+                        <span>xxx</span>
+                        <div>ZZZ</div>
+                    </div>
+                </div>  
+            </div>
+            
+            <!-- Colonne droite -->
+            <div class="right-column">
+                <!-- Profil -->
+                <div class="section">
+                    <h2>PROFIL</h2>
+                    <p style="font-size: 11px; color: #555; text-align: justify;">
+                        Professionnel motivé avec X années d'expérience dans [domaine]. 
+                        Spécialisé dans [compétences clés]. Passionné par [centres d'intérêt professionnels].
+                    </p>
+                </div>
+                
+                <!-- Expérience -->
+                <div class="section">
+                    <h2>EXPÉRIENCE PROFESSIONNELLE</h2>
+                    
+                    <div class="job">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Poste occupé</div>
+                                <div class="job-company">Entreprise, Ville</div>
+                            </div>
+                            <div class="job-date">MM/AAAA – Présent</div>
+                        </div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Réalisation de [tâche principale 1] avec [résultat quantifiable].</li>
+                                <li>Gestion de [tâche principale 2] pour [bénéfice].</li>
+                                <li>Collaboration avec [équipes/partenaires] sur [projet].</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="job">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Poste précédent</div>
+                                <div class="job-company">Entreprise précédente, Ville</div>
+                            </div>
+                            <div class="job-date">MM/AAAA – MM/AAAA</div>
+                        </div>
+                        <div class="job-description">
+                            <ul>
+                                <li>Responsable de [tâche principale 1].</li>
+                                <li>Développement de [compétence/projet].</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Formation -->
+                <div class="section">
+                    <h2>FORMATION</h2>
+                    
+                    <div class="education-item">
+                        <div class="education-header">
+                            <div>
+                                <div class="education-title">Diplôme obtenu</div>
+                                <div class="education-school">École/Université, Ville</div>
+                            </div>
+                            <div class="education-date">AAAA – AAAA</div>
+                        </div>
+                        <div class="education-description">
+                            <p>Spécialisation en [domaine]. Mémoire sur [sujet].</p>
+                        </div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="education-header">
+                            <div>
+                                <div class="education-title">Diplôme précédent</div>
+                                <div class="education-school">École précédente, Ville</div>
+                            </div>
+                            <div class="education-date">AAAA – AAAA</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="section">
+                    <h2>CERTIFICATIONS</h2>
+                    
+                    <div class="certification-item">
+                        <div class="certification-header">
+                            <div>
+                                <div class="certification-title">Certification obtenue</div>
+                                <div class="certification-issuer">Organisme</div>
+                            </div>
+                            <div class="certification-date">2026 – 2026</div>
+                        </div>
+                        <div class="certification-description">
+                            <p>Cyber X</p>
+                        </div>
+                    </div>                    
+                </div>                
+
+                <!-- Compétences / DOMAINES D'EXPERTISE -->
+                <div class="section">
+                    <h2>COMPÉTENCES</h2>
+                    <div class="compétence-item">
+                        <div class="compétence-header">
+                            <div>
+                                <div class="compétence-title">Standards & regulations</div>
+                            </div>
+                        </div>
+                        <div class="compétence-description">
+                            <p>RGPD, ISO 27001, 27002, 27005, EBIOS RM, NIS2, DORA, CRA</p>
+                        </div>
+                            <div>
+                                <div class="compétence-title">xxxxx</div>
+                            </div>
+                        </div>
+                        <div class="compétence-description">
+                            <p>ZZZ</p>
+                        <div class="compétence-description">
+                            <p>RGPD, ISO 27001, 27002, 27005, EBIOS RM, NIS2, DORA, CRA</p>
+                        </div>
+                        <div>
+                            <div class="compétence-title">xxxxx</div>
+                        </div>
+                        </div>
+                        <div class="compétence-description">
+                            <p>ZZZ</p>                            
+                        </div>
+                        <div class="compétence-description">
+                            <p>ZZZ</p>
+                        </div>
+                        <div>
+                            <div class="compétence-title">xxxxx</div>
+                        </div>
+                        </div>
+                        <div class="compétence-description">
+                            <p>ZZZ</p>
+                        </div>                                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <br/>
+
+        <!-- Pied de page -->
+        <div class="footer">
+            CV généré avec WeasyPrint | Optimisé pour ATS
+        </div>
+        
+        <!-- Version optimisée ATS (masquée visuellement mais accessible aux robots)  -->
+        <div class="ats-friendly">
+            <!--
+            <h1>PRÉNOM NOM</h1>
+            <p>Poste actuel | Spécialisation</p>
+            <h2>Expérience Professionnelle</h2>
+            <p><strong>Poste occupé</strong> chez Entreprise (MM/AAAA – Présent) : Réalisation de tâches clés avec résultats.</p>
+            <p><strong>Poste précédent</strong> chez Entreprise précédente (MM/AAAA – MM/AAAA) : Responsabilités et réalisations.</p>
+            <h2>Formation</h2>
+            <p><strong>Diplôme obtenu</strong> à École (AAAA – AAAA)</p>
+            <h2>Compétences</h2>
+            <p>Compétence 1, Compétence 2, Compétence 3, Langues: Français, Anglais</p>
+            -->
+        </div>
+       
+    </div>
+</body>
+</html>
