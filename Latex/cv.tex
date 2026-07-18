@@ -2,27 +2,24 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[margin=0.5cm, top=1cm, bottom=1cm]{geometry}
-\usepackage[fixed]{fontawesome5} % Option [fixed] pour éviter les conflits
+\usepackage[fixed]{fontawesome5}
 \usepackage{xcolor}
 \usepackage{enumitem}
 \usepackage{graphicx}
+\usepackage{ragged2e}
 
-% --- Couleurs (mêmes que ton HTML) ---
+% --- Couleurs ---
 \definecolor{sidecolor}{RGB}{52,73,94}    % #34495e
 \definecolor{maincolor}{RGB}{44,62,80}    % #2c3e50
 \definecolor{accentcolor}{RGB}{52,152,219} % #3498db
 \definecolor{lightgray}{RGB}{245,245,245} % #f5f5f5
+\definecolor{darktext}{RGB}{51,51,51}
 
 % --- Styles ---
 \pagestyle{empty}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt}
-
-% --- Barres de compétences (sans tikz) ---
-\newcommand{\skillbar}[1]{%
-  \colorbox{lightgray}{\rule{10em}{0.2em}}%
-  \colorbox{accentcolor}{\rule{#1em}{0.2em}}%
-}
+\setlength{\parskip}{5pt}
+\setlist[itemize]{nosep, leftmargin=*, topsep=0pt}
 
 \begin{document}
 
@@ -38,74 +35,78 @@
   }%
 \end{center}
 
-% --- Contenu principal (2 colonnes) ---
 \vspace{10pt}
-\begin{minipage}[t]{0.3\textwidth}
-  % --- Photo ---
+\noindent
+\begin{minipage}[t]{0.28\textwidth}
   \begin{center}
-    \includegraphics[width=3cm]{thispersondoesnotexist.jpg} % Remplace par ta photo
+    \includegraphics[width=3cm]{../img/thispersondoesnotexist.jpg}
   \end{center}
 
-  % --- Informations ---
   \vspace{10pt}
   \colorbox{sidecolor}{%
     \parbox{\dimexpr\linewidth-2\fboxsep\relax}{%
       \color{white}
       \vspace{10pt}
-      \textbf{\large INFORMATIONS}\par
+      {\large\textbf{INFORMATIONS}}\par
       \hrulefill\par
       \vspace{5pt}
-      \faMapMarkerAlt~ Adresse, Ville, Pays\par
-      \faPhone~ +XX XXX XXX XXX\par
+      \faMapMarkerAlt~ 75009 Paris\par
+      \faPhone~ +33 1 23 45 67 89\par
       \faEnvelope~ email@domaine.com\par
       \faGlobe~ www.monsite.com\par
-      \faLinkedin~ linkedin.com/in/profil\par
+      \faLinkedin~ linkedin.com/in/bobby\par
 
       \vspace{10pt}
-      \textbf{\large COMPÉTENCES}\par
+      {\large\textbf{Certifications}}\par
       \hrulefill\par
       \vspace{5pt}
-      Compétence 1\par\skillbar{9}\par
-      Compétence 2\par\skillbar{8}\par
-      Compétence 3\par\skillbar{7}\par
+      CISSP, GCIH\par
+      AZ-500, SC-100, AZ-305\par
+      ISO/IEC 27001 LI\par
+      CKA, CKAD\par
 
       \vspace{10pt}
-      \textbf{\large LANGUES}\par
+      {\large\textbf{Savoir-être}}\par
       \hrulefill\par
       \vspace{5pt}
-      Français : Courant\par
-      Anglais : Intermédiaire\par
+      xxx\par
+      xxx\par
+      xxx\par
 
       \vspace{10pt}
-      \textbf{\large ATOUTS}\par
+      {\large\textbf{LANGUES}}\par
       \hrulefill\par
       \vspace{5pt}
-      \begin{itemize}[nosep,leftmargin=*]
-        \item Orienté résultats
-        \item Esprit d'équipe
-        \item Autonome et rigoureux
-      \end{itemize}
+      Anglais\par
+      TOEIC \textregistered~4-Skills certification\par
+      B2 du CECRL\par
+
+      \vspace{10pt}
+      {\large\textbf{Divers}}\par
+      \hrulefill\par
+      \vspace{5pt}
+      Permis B\par
       \vspace{10pt}
     }%
   }%
 \end{minipage}%
 \hfill
 \begin{minipage}[t]{0.68\textwidth}
-  % --- Profil ---
-  \textbf{\large PROFIL}\par
+  {\large\textbf{PROFIL}}\par
   \colorbox{accentcolor}{\rule{\linewidth}{1pt}}\par
   \vspace{5pt}
-  Professionnel motivé avec X années d'expérience dans [domaine]. Spécialisé dans [compétences clés]. Passionné par [centres d'intérêt professionnels].\par
+  {\raggedright\small\textcolor{darktext}{Architecte senior en cybersécurité, infrastructures et Cloud avec plus de 20 ans d’expérience dans des environnements critiques.\par
+  Transformation Cloud, pilotage et management de proximité.\par
+  Coordonation d'équipes transverses et alignement des stratégies IT avec les objectifs métiers.}}\par
 
   \vspace{10pt}
-  % --- Expérience ---
-  \textbf{\large EXPÉRIENCE PROFESSIONNELLE}\par
+  {\large\textbf{EXPÉRIENCE PROFESSIONNELLE}}\par
   \colorbox{accentcolor}{\rule{\linewidth}{1pt}}\par
   \vspace{5pt}
 
   \textbf{Poste occupé} \hfill MM/AAAA – Présent\par
-  \textit{Entreprise, Ville}\par
-  \begin{itemize}[nosep,leftmargin=*]
+  \textit{Entreprise}\par
+  \begin{itemize}
     \item Réalisation de [tâche principale 1] avec [résultat quantifiable].
     \item Gestion de [tâche principale 2] pour [bénéfice].
     \item Collaboration avec [équipes/partenaires] sur [projet].
@@ -113,68 +114,89 @@
 
   \vspace{10pt}
   \textbf{Poste précédent} \hfill MM/AAAA – MM/AAAA\par
-  \textit{Entreprise précédente, Ville}\par
-  \begin{itemize}[nosep,leftmargin=*]
+  \textit{Entreprise précédente}\par
+  \begin{itemize}
     \item Responsable de [tâche principale 1].
     \item Développement de [compétence/projet].
   \end{itemize}
 
   \vspace{10pt}
-  % --- Formation ---
-  \textbf{\large FORMATION}\par
+  \textbf{Poste précédent} \hfill MM/AAAA – MM/AAAA\par
+  \textit{Entreprise précédente}\par
+  \begin{itemize}
+    \item Responsable de [tâche principale 1].
+    \item Développement de [compétence/projet].
+  \end{itemize}
+
+  \vspace{10pt}
+  \textbf{Poste précédent} \hfill MM/AAAA – MM/AAAA\par
+  \textit{Entreprise précédente}\par
+  \begin{itemize}
+    \item Responsable de [tâche principale 1].
+    \item Développement de [compétence/projet].
+  \end{itemize}
+
+  \vspace{10pt}
+  \textbf{Poste précédent} \hfill MM/AAAA – MM/AAAA\par
+  \textit{Entreprise précédente}\par
+  \begin{itemize}
+    \item Responsable de [tâche principale 1].
+    \item Développement de [compétence/projet].
+  \end{itemize}
+
+  \vspace{10pt}
+  \textbf{Poste précédent 5-V} \hfill MM/AAAA – MM/AAAA\par
+  \textit{Entreprise précédente LA DERNIÈRE}\par
+  \begin{itemize}
+    \item Responsable de [tâche principale 1] XXX.
+    \item Développement de [compétence/projet]. ZZZ
+  \end{itemize}
+
+  \vspace{10pt}
+  {\large\textbf{FORMATION}}\par
   \colorbox{accentcolor}{\rule{\linewidth}{1pt}}\par
   \vspace{5pt}
 
-  \textbf{Diplôme obtenu} \hfill AAAA – AAAA\par
+  \textbf{Diplôme obtenu}\par
   \textit{École/Université, Ville}\par
+  AAAA – AAAA\par
   Spécialisation en [domaine]. Mémoire sur [sujet].\par
 
   \vspace{10pt}
-  % --- Certifications ---
-  \textbf{\large CERTIFICATIONS}\par
-  \colorbox{accentcolor}{\rule{\linewidth}{1pt}}\par
-  \vspace{5pt}
-
-  \textbf{Certification obtenue} \hfill 2026\par
-  \textit{Organisme}\par
-  Cyber X\par
+  \textbf{Diplôme précédent}\par
+  \textit{École précédente, Ville}\par
+  AAAA – AAAA\par
 
   \vspace{10pt}
-  % --- Domaines d'expertise ---
-  \textbf{\large DOMAINES D'EXPERTISE}\par
+  {\large\textbf{COMPÉTENCES}}\par
   \colorbox{accentcolor}{\rule{\linewidth}{1pt}}\par
   \vspace{5pt}
 
-  \textbf{Standards \& Réglementations}\par
+  \textbf{Standards \& regulations}\par
   RGPD, ISO 27001, 27002, 27005, EBIOS RM, NIS2, DORA, CRA\par
+  \vspace{5pt}
+  \textbf{Méthodologies}\par
+  DevOps, DevSecOps, FinOps, Agile, SCRUM, ITIL, PMI\par
+  \vspace{5pt}
+  \textbf{Management}\par
+  Gestion des priorités, gestion des risques, construction de plans d'action, mesure de la performance\par
+  \vspace{5pt}
+  \textbf{Cloud}\par
+  Cloud Governance, Sécurité du Cloud Public, Azure, AWS, IAM, SSO, SAML, Kubernetes\par
+  \vspace{5pt}
+  \textbf{Dev}\par
+  DevSecOps GitOps, CI, CICD, Gitlab, GitHub Actions, REST, API Management, sécurité des containers et automatisation\par
+  \vspace{5pt}
+  \textbf{Sécurité}\par
+  Gouvernance cybersécurité, (RGPD, NIS2, ISO 27001) gestion des risques, Cyber Sécurité, Cyber Threat Intelligence, MITRE ATT\&CK \& Cyber Kill Chain Framework, CIS, NIST, OWASP, Metasploit, IAM, MFA, EDR, SASE, ZTNA, CASB, SAST/DAST\par
+  \vspace{5pt}
+  \textbf{Poste de travail}\par
+  Microsoft Windows, Active Directory, SCCM, Intune, PowerShell, Office 365, SharePoint\par
 \end{minipage}
 
-% --- Pied de page ---
 \vfill
 \begin{center}
   \footnotesize\textcolor{gray}{CV généré avec LaTeX | Optimisé pour ATS}
 \end{center}
-
-% --- Version ATS (texte brut) ---
-\clearpage
-\section*{Version optimisée pour les ATS}
-\textbf{Prénom NOM} \\
-Poste actuel | Spécialisation en cybersécurité, conformité RGPD, ISO 27001, NIS2, DORA \\
-\\
-\textbf{Expérience Professionnelle} \\
-\textbf{Poste occupé} chez Entreprise (MM/AAAA – Présent) : Gestion des risques, audit, conformité, RGPD, ISO 27001. \\
-\textbf{Poste précédent} chez Entreprise précédente (MM/AAAA – MM/AAAA) : Mise en place de politiques de sécurité. \\
-\\
-\textbf{Formation} \\
-\textbf{Diplôme obtenu} à École (AAAA – AAAA) en [domaine]. \\
-\\
-\textbf{Compétences} \\
-RGPD, ISO 27001, ISO 27002, ISO 27005, EBIOS RM, NIS2, DORA, CRA, Cybersécurité, Audit, Gestion des risques, SIEM, Firewalls \\
-\\
-\textbf{Langues} \\
-Français (courant), Anglais (intermédiaire) \\
-\\
-\textbf{Certifications} \\
-Cyber X (2026)
 
 \end{document}
